@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Dairesi Detayları | X Hotel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* TEMEL AYARLAR */
+        :root { --primary: #2c3e50; --gold: #d4af37; --light: #f8f9fa; --text: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--light); color: var(--text); line-height: 1.6; }
+        a { text-decoration: none; }
+
+        /* NAVİGASYON */
+        nav { background: var(--primary); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; color: white; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { color: white; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* GALERİ ALANI */
+        .gallery-container {
+            max-width: 1200px; margin: 20px auto; padding: 0 20px;
+            display: grid; grid-template-columns: 2fr 1fr; gap: 15px; height: 500px;
+        }
+        .main-img { 
+            background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200');
+            background-size: cover; background-position: center; border-radius: 10px; height: 100%;
+        }
+        .sub-images { display: flex; flex-direction: column; gap: 15px; height: 100%; }
+        .sub-img { 
+            flex: 1; background-size: cover; background-position: center; border-radius: 10px; cursor: pointer; transition: 0.3s;
+        }
+        .sub-img:hover { opacity: 0.8; }
+
+        /* İÇERİK DÜZENİ (GRID) */
+        .content-wrapper {
+            max-width: 1200px; margin: 40px auto; padding: 0 20px;
+            display: grid; grid-template-columns: 2fr 1fr; gap: 40px; position: relative;
+        }
+
+        /* SOL TARAF: AÇIKLAMA VE ÖZELLİKLER */
+        .room-title { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+        .room-meta { color: #666; font-size: 1.1rem; margin-bottom: 30px; display: flex; gap: 20px; }
+        .room-meta i { color: var(--gold); }
+
+        .section-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .section-box h3 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px; color: var(--primary); }
+
+        .amenities-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .amenity-item { display: flex; align-items: center; gap: 10px; color: #555; }
+        .amenity-item i { width: 25px; color: var(--gold); text-align: center; }
+
+        /* SAĞ TARAF: YAPIŞKAN REZERVASYON KARTI */
+        .booking-card {
+            background: white; padding: 30px; border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid var(--gold);
+            position: sticky; top: 20px; /* Sayfa kaydığında sabit kalır */
+            height: fit-content;
+        }
+        .price-area { text-align: center; margin-bottom: 20px; }
+        .price-big { font-size: 2rem; color: var(--primary); font-weight: bold; }
+        .price-note { color: #888; font-size: 0.9rem; }
+
+        .btn-whatsapp-book {
+            display: block; width: 100%; background: #25d366; color: white;
+            padding: 15px; text-align: center; border-radius: 5px; font-weight: bold; font-size: 1.1rem;
+            transition: 0.3s; margin-top: 15px;
+        }
+        .btn-whatsapp-book:hover { background: #1ebc57; }
+
+        /* MOBİL UYUM */
+        @media (max-width: 768px) {
+            .gallery-container { grid-template-columns: 1fr; height: auto; }
+            .main-img { height: 300px; margin-bottom: 10px; }
+            .sub-images { flex-direction: row; height: 100px; }
+            .content-wrapper { grid-template-columns: 1fr; }
+            .booking-card { position: relative; top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div style="font-size: 1.5rem; font-weight: bold;">X HOTEL</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="rooms.html">Tüm Odalar</a></li>
+            <li><a href="index.html#contact">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <div class="gallery-container">
+        <div class="main-img"></div>
+        <div class="sub-images">
+            <div class="sub-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500');"></div>
+            <div class="sub-img" style="background-image: url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=500');"></div>
+            <div class="sub-img" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500');"></div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        
+        <div class="left-col">
+            <h1 class="room-title">Kral Dairesi (King Suite)</h1>
+            <div class="room-meta">
+                <span><i class="fas fa-user"></i> 4 Kişilik</span>
+                <span><i class="fas fa-ruler-combined"></i> 85 m²</span>
+                <span><i class="fas fa-bed"></i> 1 King + 2 Tekli Yatak</span>
+            </div>
+
+            <div class="section-box">
+                <h3>Oda Hakkında</h3>
+                <p>Şehrin en iyi manzarasına sahip Kral Dairesi, lüks ve konforu bir arada sunuyor. Geniş oturma odası, özel çalışma alanı ve panoramik camları ile kendinizi özel hissedeceksiniz. Akşamları jakuzi keyfi yapabilir veya balkonda gün batımını izleyebilirsiniz.</p>
+                <br>
+                <p>Balayı çiftleri ve VIP konuklarımız için özel olarak tasarlanmıştır. Ses yalıtımı sayesinde tam sessizlik garantisi veriyoruz.</p>
+            </div>
+
+            <div class="section-box">
+                <h3>Tüm Olanaklar</h3>
+                <div class="amenities-grid">
+                    <div class="amenity-item"><i class="fas fa-wifi"></i> Yüksek Hızda Wi-Fi</div>
+                    <div class="amenity-item"><i class="fas fa-snowflake"></i> Merkezi Klima</div>
+                    <div class="amenity-item"><i class="fas fa-tv"></i> 55" Smart TV (Netflix)</div>
+                    <div class="amenity-item"><i class="fas fa-hot-tub"></i> Özel Jakuzi</div>
+                    <div class="amenity-item"><i class="fas fa-coffee"></i> Nespresso Makinesi</div>
+                    <div class="amenity-item"><i class="fas fa-lock"></i> Dijital Kasa</div>
+                    <div class="amenity-item"><i class="fas fa-wind"></i> Saç Kurutma Makinesi</div>
+                    <div class="amenity-item"><i class="fas fa-concierge-bell"></i> 7/24 Oda Servisi</div>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <h3>Ev Kuralları</h3>
+                <ul style="margin-left: 20px; color: #555;">
+                    <li><strong>Giriş Saati:</strong> 14:00 sonrası</li>
+                    <li><strong>Çıkış Saati:</strong> 11:00 öncesi</li>
+                    <li>Evcil hayvan kabul edilmemektedir.</li>
+                    <li>Oda içinde sigara içilmesi yasaktır (Balkon hariç).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-col">
+            <div class="booking-card">
+                <div class="price-area">
+                    <div class="price-note">Gecelik Başlangıç Fiyatı</div>
+                    <div class="price-big">7.500 ₺</div>
+                    <div class="price-note">Vergiler Dahildir</div>
+                </div>
+                
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+                <div style="margin-bottom: 20px;">
+                    <i class="fas fa-check-circle" style="color: green;"></i> Ücretsiz İptal (Girişe 48 saat kala)<br>
+                    <i class="fas fa-check-circle" style="color: green;"></i> Kahvaltı Dahil
+                </div>
+
+                <a href="https://wa.me/905000000000?text=Merhaba, Kral Dairesi için rezervasyon yapmak istiyorum." class="btn-whatsapp-book" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp ile Ayırt
+                </a>
+                
+                <p style="text-align: center; font-size: 0.8rem; color: #999; margin-top: 10px;">
+                    Rezervasyon için anında dönüş yapılır.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 50px;">
+        <p>© 2026 X Hotel - Kral Dairesi</p>
+    </footer>
+
+</body>
+</html>

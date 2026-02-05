@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odalarımız | X Hotel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* TEMEL AYARLAR */
+        :root { --primary: #2c3e50; --gold: #d4af37; --light: #f4f4f4; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--light); color: #333; }
+        a { text-decoration: none; }
+
+        /* NAVİGASYON */
+        nav { background: var(--primary); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { color: var(--gold); font-size: 1.5rem; font-weight: bold; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { color: #fff; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* BAŞLIK ALANI */
+        .page-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1920');
+            background-size: cover; background-position: center;
+            height: 35vh; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 50px;
+        }
+        .page-header h1 { font-size: 3rem; border-bottom: 3px solid var(--gold); padding-bottom: 10px; }
+
+        /* ODA KARTLARI (LİSTE GÖRÜNÜMÜ) */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+        
+        .room-row {
+            display: flex; flex-wrap: wrap; background: white; margin-bottom: 40px;
+            border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s; border: 1px solid #eee;
+        }
+        .room-row:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
+        .room-img-col { flex: 1; min-width: 300px; background-size: cover; background-position: center; min-height: 320px; }
+        
+        .room-info-col { flex: 1.5; padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+        
+        .room-info-col h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.8rem; }
+        .room-desc { color: #666; margin-bottom: 20px; line-height: 1.6; }
+
+        /* ÖZELLİK LİSTESİ */
+        .features-list {
+            list-style: none; display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 25px;
+        }
+        .features-list li {
+            font-size: 0.9rem; color: #555; background: #f8f9fa; padding: 8px 12px; border-radius: 5px; border: 1px solid #eee;
+        }
+        .features-list i { color: var(--gold); margin-right: 5px; }
+
+        /* FİYAT VE BUTONLAR */
+        .action-area { 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-top: 1px solid #eee; padding-top: 20px; flex-wrap: wrap; gap: 15px;
+        }
+        .price-tag { font-size: 1.5rem; color: var(--gold); font-weight: bold; }
+        
+        .buttons-group { display: flex; gap: 10px; }
+
+        .btn-detail {
+            background: var(--primary); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-detail:hover { background: #34495e; }
+
+        .btn-reserve {
+            background: #25d366; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;
+            display: flex; align-items: center; gap: 8px; transition: 0.3s;
+        }
+        .btn-reserve:hover { background: #1ebc57; }
+
+        /* MOBİL UYUM */
+        @media (max-width: 768px) {
+            .room-row { flex-direction: column; }
+            .room-img-col { height: 250px; }
+            .action-area { flex-direction: column; align-items: flex-start; }
+            .buttons-group { width: 100%; }
+            .btn-detail, .btn-reserve { flex: 1; text-align: center; justify-content: center; }
+        }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">X HOTEL</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="rooms.html" style="color: var(--gold);">Odalar</a></li>
+            <li><a href="index.html#contact">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>Konaklama Seçenekleri</h1>
+    </header>
+
+    <div class="container">
+        
+        <div class="room-row">
+            <div class="room-img-col" style="background-image: url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800');"></div>
+            <div class="room-info-col">
+                <h2>Standart Oda</h2>
+                <p class="room-desc">Modern tasarım ve konforun buluştuğu standart odalarımız, iş seyahatleri ve kısa tatiller için idealdir. Sessiz, huzurlu ve şehir manzaralı.</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-ruler-combined"></i> 25 m²</li>
+                    <li><i class="fas fa-user"></i> 2 Kişilik</li>
+                    <li><i class="fas fa-bed"></i> Çift Kişilik Yatak</li>
+                    <li><i class="fas fa-wifi"></i> Ücretsiz Wi-Fi</li>
+                </ul>
+
+                <div class="action-area">
+                    <span class="price-tag">1.500 ₺ / Gece</span>
+                    <div class="buttons-group">
+                        <a href="room-detail.html" class="btn-detail"><i class="fas fa-eye"></i> İncele</a>
+                        <a href="https://wa.me/905000000000?text=Standart Oda rezervasyonu hakkında bilgi almak istiyorum." class="btn-reserve" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Rezerve Et
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-row">
+            <div class="room-img-col" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800');"></div>
+            <div class="room-info-col">
+                <h2>Deluxe Suit</h2>
+                <p class="room-desc">Geniş aileler için tasarlanmış, ferah oturma alanı ve muhteşem deniz manzarası sunan suitimiz. Balkon keyfi ve lüks banyo olanakları.</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-ruler-combined"></i> 45 m²</li>
+                    <li><i class="fas fa-user"></i> 3 Kişilik</li>
+                    <li><i class="fas fa-coffee"></i> Kahve Makinesi</li>
+                    <li><i class="fas fa-wind"></i> Balkon & Manzara</li>
+                </ul>
+
+                <div class="action-area">
+                    <span class="price-tag">3.000 ₺ / Gece</span>
+                    <div class="buttons-group">
+                        <a href="room-detail.html" class="btn-detail"><i class="fas fa-eye"></i> İncele</a>
+                        <a href="https://wa.me/905000000000?text=Deluxe Suit rezervasyonu hakkında bilgi almak istiyorum." class="btn-reserve" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Rezerve Et
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-row">
+            <div class="room-img-col" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800');"></div>
+            <div class="room-info-col">
+                <h2>Kral Dairesi (King Suite)</h2>
+                <p class="room-desc">En üst katta yer alan bu daire, özel jakuzi, sauna ve kişisel asistan hizmeti ile lüksün sınırlarını zorluyor. Balayı çiftleri için mükemmel bir tercih.</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-ruler-combined"></i> 80 m²</li>
+                    <li><i class="fas fa-user"></i> 2+1 Kişilik</li>
+                    <li><i class="fas fa-hot-tub"></i> Jakuzi & Sauna</li>
+                    <li><i class="fas fa-wine-glass-alt"></i> Minibar (Dolu)</li>
+                    <li><i class="fas fa-glass-cheers"></i> Hoşgeldin İkramı</li>
+                </ul>
+
+                <div class="action-area">
+                    <span class="price-tag">7.500 ₺ / Gece</span>
+                    <div class="buttons-group">
+                        <a href="room-detail.html" class="btn-detail"><i class="fas fa-eye"></i> İncele</a>
+                        <a href="https://wa.me/905000000000?text=Merhaba, Kral Dairesi için bilgi almak istiyorum." class="btn-reserve" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Rezerve Et
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 20px;">
+        <p>© 2026 X Hotel - Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <a href="https://wa.me/905000000000" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
