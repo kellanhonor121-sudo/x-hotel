@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X Hotel | Lüks ve Konfor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* GENEL AYARLAR */
+        :root {
+            --primary: #2c3e50; /* Koyu Lacivert */
+            --gold: #d4af37;    /* Altın */
+            --light: #f4f4f4;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--light); color: #333; }
+        a { text-decoration: none; }
+        
+        /* HEADER & NAV */
+        nav {
+            background: var(--primary); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .logo { color: var(--gold); font-size: 1.8rem; font-weight: bold; letter-spacing: 2px; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { color: #fff; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* HERO SECTION */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: white;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
+        .btn-gold {
+            background: var(--gold); color: white; padding: 12px 30px; border-radius: 50px;
+            font-weight: bold; transition: 0.3s; margin-top: 20px; display: inline-block;
+        }
+        .btn-gold:hover { background: #b39028; transform: scale(1.05); }
+
+        /* ÖNE ÇIKAN ODALAR (PREVIEW) */
+        .section-title { text-align: center; padding: 60px 0 30px; font-size: 2.5rem; color: var(--primary); }
+        .container { padding: 0 5% 60px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card-img { height: 200px; background-size: cover; background-position: center; }
+        .card-body { padding: 20px; text-align: center; }
+        .card h3 { margin-bottom: 10px; color: var(--primary); }
+        .price { color: var(--gold); font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 15px; }
+
+        /* İLETİŞİM & HARİTA */
+        .contact-section { background: var(--primary); color: white; padding: 50px 5%; display: flex; flex-wrap: wrap; gap: 40px; }
+        .contact-info { flex: 1; min-width: 300px; }
+        .contact-info h2 { color: var(--gold); margin-bottom: 20px; }
+        .contact-item { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; font-size: 1.1rem; }
+        .map-box { flex: 1; min-width: 300px; height: 350px; border-radius: 10px; overflow: hidden; }
+        iframe { width: 100%; height: 100%; border: 0; }
+
+        /* WHATSAPP BUTONU */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 35px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 999; transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: rotate(15deg) scale(1.1); }
+
+        /* FOOTER */
+        footer { background: #1a252f; color: #bbb; text-align: center; padding: 20px; border-top: 1px solid #333; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">X HOTEL</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="rooms.html">Odalarımız</a></li>
+            <li><a href="#contact">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Unutulmaz Bir Tatil Deneyimi</h1>
+        <p>Şehrin kalbinde, lüksün ve huzurun buluşma noktası.</p>
+        <a href="rooms.html" class="btn-gold">Odaları İncele <i class="fas fa-arrow-right"></i></a>
+    </section>
+
+    <h2 class="section-title">Popüler Seçenekler</h2>
+    <div class="container grid-3">
+        <div class="card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=500');"></div>
+            <div class="card-body">
+                <h3>Standart Oda</h3>
+                <span class="price">1.500 ₺ / Gece</span>
+                <p>Ekonomik ve konforlu bir konaklama deneyimi.</p>
+                <a href="rooms.html" style="color: var(--primary); font-weight: bold; margin-top: 10px; display: inline-block;">Detayları Gör →</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500');"></div>
+            <div class="card-body">
+                <h3>Deluxe Suit</h3>
+                <span class="price">3.000 ₺ / Gece</span>
+                <p>Geniş balkon ve eşsiz deniz manzarası.</p>
+                <a href="rooms.html" style="color: var(--primary); font-weight: bold; margin-top: 10px; display: inline-block;">Detayları Gör →</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500');"></div>
+            <div class="card-body">
+                <h3>Kral Dairesi</h3>
+                <span class="price">7.500 ₺ / Gece</span>
+                <p>En üst düzey lüks ve özel hizmetler.</p>
+                <a href="rooms.html" style="color: var(--primary); font-weight: bold; margin-top: 10px; display: inline-block;">Detayları Gör →</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-info">
+            <h2>Bize Ulaşın</h2>
+            <p style="margin-bottom: 20px; opacity: 0.8;">Rezervasyon ve sorularınız için 7/24 hizmetinizdeyiz.</p>
+            
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt" style="color: var(--gold);"></i>
+                <span>Cumhuriyet Cad. No:123, Kadıköy / İstanbul</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt" style="color: var(--gold);"></i>
+                <span>+90 212 123 45 67</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope" style="color: var(--gold);"></i>
+                <span>info@xhotel.com</span>
+            </div>
+        </div>
+
+        <div class="map-box">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.6504900138415!2d29.0234!3d40.9905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDU5JzI1LjgiTiAyOcKwMDEnMjQuMiJF!5e0!3m2!1str!2str!4v1620000000000!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 X Hotel - Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <a href="https://wa.me/905000000000" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
